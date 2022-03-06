@@ -30,14 +30,14 @@ func mirror(u string, content string) (string, error) {
 		savePath = filepath.Join(savePath, "index.gmi")
 	}
 
-	fmt.Fprintf(os.Stderr, "Writing to: %s\n", savePath)
+	// fmt.Fprintf(os.Stderr, "Writing to: %s\n", savePath)
 
 	// Assert that path is a subdir of config.DownloadsDir to avoid security
 	// issues
 	rel, err := (filepath.Rel(config.DownloadsDir, savePath))
 	if err != nil || strings.HasPrefix(rel, "..") {
 		errText := fmt.Sprintf("Invalid rel path: %s\n", rel)
-		fmt.Fprintf(os.Stderr, errText)
+		// fmt.Fprintf(os.Stderr, errText)
 		return "", errors.New(errText)
 	}
 

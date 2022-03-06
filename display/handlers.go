@@ -384,6 +384,9 @@ func handleURL(t *tab, u string, numRedirects int) (string, bool) {
 		}
 
 		setPage(t, page)
+
+		mirror(u, page.Raw)
+
 		return ret(u, true)
 	}
 	// Not displayable
